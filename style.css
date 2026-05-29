@@ -688,7 +688,7 @@ nav a:hover::after { transform: scaleX(1); }
   padding: 0 1.8rem;
 }
 .accordion-item.open .accordion-body {
-  max-height: 600px;
+  max-height: 2000px;
   padding: 1.4rem 1.8rem;
 }
 
