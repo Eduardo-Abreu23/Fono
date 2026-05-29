@@ -285,7 +285,7 @@ nav a:hover::after { transform: scaleX(1); }
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 .hero-bottom-text {
@@ -1118,4 +1118,65 @@ footer {
 }
 .reveal.visible { 
   opacity: 1; transform: translateY(0); 
+}
+
+
+/* ========================================
+   RESPONSIVO MOBILE — AJUSTES GERAIS
+======================================== */
+
+/* Hero mobile */
+@media (max-width: 840px) {
+  .hero-bottom-info { justify-content: center; flex-wrap: wrap; }
+  .hero-title { text-align: center; }
+  .hero-desc { text-align: center; }
+}
+
+/* Sobre mobile */
+@media (max-width: 840px) {
+  .about-photo--round { max-width: 300px; margin: 0 auto; }
+  .about-text { text-align: center; }
+  .about-text .gold-divider { margin: 0.8rem auto; }
+  .about-text .btn { display: inline-flex; }
+}
+
+/* Serviços subtitle — remove nowrap no mobile */
+@media (max-width: 768px) {
+  .section-subtitle[style*="white-space:nowrap"],
+  .section-subtitle[style*="white-space: nowrap"] {
+    white-space: normal !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Accordion mobile */
+@media (max-width: 600px) {
+  .accordion-icon { width: 36px; height: 36px; font-size: 1.2rem; }
+  .accordion-body { padding: 0 1rem; }
+  .accordion-item.open .accordion-body { padding: 1rem; }
+}
+
+/* Contato card mobile */
+@media (max-width: 600px) {
+  .contact-card { padding: 1.5rem; }
+  .contact-card-btn { font-size: 0.75rem !important; padding: 0.75rem 1.2rem !important; }
+}
+
+/* Footer mobile */
+@media (max-width: 700px) {
+  .footer-brand { text-align: center; align-items: center; }
+  .footer-brand .logo { align-items: center; }
+  .social-links { justify-content: center; }
+}
+
+/* Espaço mobile */
+@media (max-width: 480px) {
+  .espaco-note { font-size: 0.85rem; padding: 0 1rem; }
+  .espaco-note-end { display: block; margin-top: 0.3rem; }
+}
+
+/* Público alvo mobile */
+@media (max-width: 600px) {
+  .publico-texto { padding: 0 0.5rem; }
+  .publico-destaque { font-size: 0.85rem !important; }
 }
