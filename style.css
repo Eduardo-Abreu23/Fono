@@ -610,115 +610,101 @@ nav a:hover::after { transform: scaleX(1); }
 }
 
 /* ========================================
-   SERVIÇOS / ÁREAS DE ATUAÇÃO
+   ACCORDION — ÁREAS DE ATUAÇÃO
 ======================================== */
-.servicos-section { background: var(--white); }
-
-.services-grid {
+.accordion {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.8rem;
   margin-bottom: 4rem;
 }
-.service-card {
-  flex: 1 1 280px;
-  max-width: calc(25% - 1.5rem);
-  background: var(--white);
+
+.accordion-item {
+  border: 1px solid rgba(145,181,163,0.25);
   border-radius: var(--radius-md);
-  padding: 2.2rem 1.8rem;
-  border: 1px solid rgba(145,181,163,0.2);
+  overflow: hidden;
+  background: var(--white);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
 }
-@media (max-width: 1100px) { .service-card { max-width: calc(33.333% - 1.5rem); } }
-@media (max-width: 700px)  { .service-card { max-width: 100%; } }
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--green), var(--green-light));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition);
+.accordion-item:hover {
+  box-shadow: var(--shadow-md);
 }
-.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.service-card:hover::before { transform: scaleX(1); }
 
-.service-icon {
-  width: 52px; height: 52px;
+.accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+.accordion-btn:hover {
+  background: var(--green-pale);
+}
+.accordion-item.open .accordion-btn {
+  background: var(--green-pale);
+  border-bottom: 1px solid rgba(145,181,163,0.2);
+}
+
+.accordion-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 44px; height: 44px;
   background: linear-gradient(135deg, var(--green-pale), var(--rose-pale));
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.3rem;
-  font-size: 1.6rem;
   border: 1px solid rgba(145,181,163,0.2);
 }
-.service-card h3 {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 0.88rem;
-  margin-bottom: 0.7rem;
-  color: var(--text-dark);
-  line-height: 1.4;
-}
-.service-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
 
-.exames-divider { padding: 1rem 0; }
-
-.exames-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.exame-card {
-  background: linear-gradient(135deg, var(--green-pale), var(--white));
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  display: flex;
-  gap: 1.4rem;
-  align-items: flex-start;
-  border: 1px solid rgba(145,181,163,0.3);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-.exame-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.exame-icon {
-  font-size: 2rem;
-  width: 56px; height: 56px;
-  flex-shrink: 0;
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(145,181,163,0.2);
-}
-.exame-text h3 {
+.accordion-title {
+  flex: 1;
   font-family: 'Cinzel Decorative', serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-dark);
-  margin-bottom: 0.3rem;
+  letter-spacing: 0.04em;
 }
-.exame-tag {
-  display: inline-block;
-  background: rgba(145,181,163,0.18);
+
+.accordion-arrow {
+  font-size: 0.7rem;
   color: var(--green-mid);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  padding: 0.2rem 0.7rem;
-  border-radius: 100px;
-  margin-bottom: 0.6rem;
+  transition: transform var(--transition);
+  flex-shrink: 0;
 }
-.exame-text p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.6; }
+.accordion-item.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.8rem;
+}
+.accordion-item.open .accordion-body {
+  max-height: 600px;
+  padding: 1.4rem 1.8rem;
+}
+
+.accordion-body p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+.accordion-body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 600px) {
+  .accordion-title { font-size: 0.78rem; }
+  .accordion-btn { padding: 1.1rem 1.2rem; }
+}
 
 /* ========================================
    NOSSO ESPAÇO

@@ -71,3 +71,15 @@ document.querySelectorAll('.espaco-img').forEach(img => {
     img.style.display = 'none';
   });
 });
+
+/* ---- Accordion ---- */
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    // Fecha todos
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    // Abre o clicado (se estava fechado)
+    if (!isOpen) item.classList.add('open');
+  });
+});
