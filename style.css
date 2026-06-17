@@ -751,7 +751,6 @@ nav a:hover::after { transform: scaleX(1); }
 .espaco-note {
   text-align: center;
   margin-top: 2rem;
-
   font-style: italic;
   font-size: 1rem;
   color: var(--green-mid);
@@ -762,8 +761,13 @@ nav a:hover::after { transform: scaleX(1); }
   .espaco-card--large .espaco-img-wrap { min-height: 220px; }
 }
 @media (max-width: 480px) {
-  .espaco-grid { grid-template-columns: 1fr; }
-  .espaco-card--large { grid-column: span 1; }
+  .espaco-note { font-size: 0.85rem; padding: 0 1rem; }
+  .espaco-note-end { display: block; margin-top: 0.3rem; }
+}
+.mobile-br { display: none; }
+
+@media (max-width: 480px) {
+  .mobile-br { display: block; }
 }
 
 /* ========================================
